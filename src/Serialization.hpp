@@ -226,8 +226,8 @@ namespace ModData
 			for (RE::FormID headFormID : toRemove) {
 				auto actorIt = headToActorMap.find(headFormID);
 				if (actorIt != headToActorMap.end()) {
+					const RE::FormID actorFormID = actorIt->second;
 					headToActorMap.erase(actorIt);
-					RE::FormID actorFormID = actorIt->second;
 					if (MiscUtils::IsFormIDValid(actorFormID)) actorToHeadMap.erase(actorFormID);
 					TRACE("    -> Removed decapitation entry: Actor [REF:{:08X}] no longer valid. Head [REF:{:08X}] cleaned up.", actorFormID, headFormID);
 				}
